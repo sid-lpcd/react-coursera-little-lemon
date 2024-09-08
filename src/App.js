@@ -1,17 +1,17 @@
 import './App.css';
-import './components/Header.js'
-import './components/Footer.js'
-import './components/Main.js'
-import './components/Nav.js'
+import Header from'./components/Header.js'
+import Footer from './components/Footer.js'
+import Main from'./components/Main.js'
+import Nav from'./components/Nav.js'
 
 function App() {
   return (
-    <className="App">
+    <div className="App">
       <Header/>
       <Nav/>
       <Main/>
       <Footer/>
-    </>
+    </div>
   );
 }
 

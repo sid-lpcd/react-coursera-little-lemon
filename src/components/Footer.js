@@ -3,7 +3,7 @@ function Footer() {
     <footer>
       <img src='../images/logo.png'></img>
       <div>
-        <p class='title'>Footer Navigation<p/>
+        <p class='title'>Footer Navigation</p>
         <ul>
           <li><a href=''>Home</a></li>
           <li><a href=''>About</a></li>
@@ -14,7 +14,7 @@ function Footer() {
         </ul>
       </div>
       <div>
-        <p class='title'>Contact<p/>
+        <p class='title'>Contact</p>
         <ul>
           <li><a href=''>Address</a></li>
           <li><a href=''>Phone Number</a></li>
@@ -22,7 +22,7 @@ function Footer() {
         </ul>
       </div>
       <div>
-        <p class='title'>Social Media Links<p/>
+        <p class='title'>Social Media Links</p>
         <ul>
           <li><a href=''>Instagram</a></li>
           <li><a href=''>Facebook</a></li>

@@ -1,31 +1,118 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  color: #333333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: 'Karla', serif;
+  font-size: 16px;
+  margin: 3rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1, h2, h3 {
+  font-family: 'Markazi';
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1{
+  font-size: 40px !important;
+}
+
+h3{
+  font-size: 32px !important;
+}
+
+.title-primary{
+  color: #F4CE14;
+}
+
+.title-secondary{
+  color: #EDEFEE;
+}
+
+.text-secondary{
+  color: #EDEFEE;
+}
+
+.btn-primary{
+  margin: 20px 0;
+  color: #333333 !important;
+  font-weight: bold !important;
+  background-color: #F4CE14 !important;
+}
+
+nav{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: nowrap;
+  height: 57px;
+  width: 100vw;
+  margin: 16px 0px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+nav ul{
+  display: flex;
+  list-style: none;
+  font-weight: bold;
+  gap: 20px;
+  margin: auto 0;
+
+}
+
+nav li, a{
+  flex: 1;
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  white-space: nowrap;
+  color: #333333 !important;
+}
+
+nav li a:link{
+  text-decoration: none;
+  transition: all 0.5;
+}
+
+nav li a:hover{
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+nav li a:active{
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+section, footer{
+  display: flex;
+  margin: 0 5%;
+  max-width: unset !important;
+}
+
+section.container-green{
+  background-color: #495E57;
+  padding: 0 30% 0 10%;
+  gap: 20px;
+}
+
+.container{
+  height: 375px;
+  align-items: center; /* vertical */
+  justify-content: center; /* horizontal */
+}
+
+#book-table .img-container{
+  margin-top: 150px;
+  width: 397px;
+  height: 383px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#book-table img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Ensures the whole image is visible within the container */
 }
 
 @keyframes App-logo-spin {

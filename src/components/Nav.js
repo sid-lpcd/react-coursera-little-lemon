@@ -1,7 +1,9 @@
+import Logo from '../images/Logo.svg'
+
 function Nav() {
   return (
     <nav>
-      <img src='../images/logo.png'></img>
+      <img src={Logo}></img>
       <ul>
         <li><a href=''>Home</a></li>
         <li><a href=''>About</a></li>
