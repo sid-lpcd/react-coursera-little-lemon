@@ -16,7 +16,7 @@ function Specials() {
     title: "Lemon Dessert",
     text: "Text just to pretend it has something interesting. It is supposed to describe the dish."
   }]
-  const foodCards = foodList.map(food => <FoodCard key={food.title} img={food.img} title={food.title} text={food.text} />)
+  const foodCards = foodList.map(food => {return <FoodCard key={food.title} img={food.img} title={food.title} text={food.text} />})
   return (
     <>
       <section>
