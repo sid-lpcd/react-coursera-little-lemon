@@ -22,6 +22,10 @@ h3{
   font-size: 32px !important;
 }
 
+p{
+  margin: 0px !important;
+}
+
 .title-primary{
   color: #F4CE14;
 }
@@ -85,20 +89,35 @@ nav li a:active{
 
 section, footer{
   display: flex;
-  margin: 0 5%;
+  margin: 20px 0px !important;
   max-width: unset !important;
+  padding: 10px 10% !important;
 }
 
 section.container-green{
+  height: 375px;
   background-color: #495E57;
   padding: 0 30% 0 10%;
   gap: 20px;
 }
 
 .container{
-  height: 375px;
   align-items: center; /* vertical */
   justify-content: center; /* horizontal */
+}
+
+button{
+  width: 200px !important;
+  max-width: 200px !important;
+}
+
+.row{
+  flex-direction: row;
+  flex-wrap: nowrap !important;
+}
+
+.heading{
+  justify-content: space-between;
 }
 
 #book-table .img-container{
@@ -113,6 +132,22 @@ section.container-green{
   width: 100%;
   height: auto;
   object-fit: contain; /* Ensures the whole image is visible within the container */
+}
+
+#specials{
+  margin-top: 6rem !important
+}
+
+#specials .row *{
+  flex-shrink: unset;
+}
+
+#testimonials .row {
+  flex: 0 1 50%;
+}
+
+.card{
+  margin: 0 20px;
 }
 
 @keyframes App-logo-spin {
