@@ -146,8 +146,50 @@ button{
   flex: 0 1 50%;
 }
 
+
+#description .img-container{
+  display: flex;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+}
+
+#description img {
+  width: auto;
+  height: 100%;
+  object-fit: fill; /* Ensures the whole image is visible within the container */
+  object-position: center;
+}
+
+#description .offset-vertical{
+  position: absolute;
+  z-index: 2;
+  margin-top: 150px;
+}
+
+#description .fixed{
+  position: relative;
+  z-index: 1;
+  margin-left: 100px;
+}
+
 .card{
   margin: 0 20px;
+}
+
+footer{
+  margin-top: 200px !important;
+}
+
+footer .title{
+  font-weight: bold;
+}
+
+footer ul{
+  list-style: none;
+  padding: 10px 0px;
 }
 
 @keyframes App-logo-spin {

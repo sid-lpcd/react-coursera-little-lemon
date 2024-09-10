@@ -1,8 +1,12 @@
+import Logo from '../images/Logo.svg'
+
 function Footer() {
   return (
-    <footer>
-      <img src='../images/logo.png'></img>
-      <div>
+    <footer className='container align-items-start'>
+      <div className='col-3 align-items-center justify-content-center'>
+        <img src={Logo}></img>
+      </div>
+      <div className='col-3'>
         <p class='title'>Footer Navigation</p>
         <ul>
           <li><a href=''>Home</a></li>
@@ -13,7 +17,7 @@ function Footer() {
           <li><a href=''>Login</a></li>
         </ul>
       </div>
-      <div>
+      <div className='col-3'>
         <p class='title'>Contact</p>
         <ul>
           <li><a href=''>Address</a></li>
@@ -21,7 +25,7 @@ function Footer() {
           <li><a href=''>Email</a></li>
         </ul>
       </div>
-      <div>
+      <div className='col-3'>
         <p class='title'>Social Media Links</p>
         <ul>
           <li><a href=''>Instagram</a></li>
