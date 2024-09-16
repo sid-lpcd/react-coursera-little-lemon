@@ -34,8 +34,12 @@ p{
   color: #EDEFEE;
 }
 
-.text-secondary{
-  color: #EDEFEE;
+.title-prim{
+  color: #F4CE14;
+}
+
+.text-second{
+  color: #EDEFEE !important;
 }
 
 .btn-primary{
@@ -133,6 +137,39 @@ button{
   height: auto;
   object-fit: contain; /* Ensures the whole image is visible within the container */
 }
+
+#book-table .location-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#book-table .location-box {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  text-align: center;
+  flex-grow: 1;
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+#book-table .location-box:hover {
+  background-color: #F4CE14;
+  transform: scale(1.05);
+}
+
+#book-table .location-box.selected {
+  background-color: #F4CE14;
+  color: #333333;
+  border-color: #333333;
+  transform: scale(1.05);
+}
+
 
 #specials{
   margin-top: 6rem !important

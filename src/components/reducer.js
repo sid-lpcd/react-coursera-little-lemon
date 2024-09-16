@@ -23,7 +23,12 @@ export const updateTimes = (date) => {
     if(CurrentDate.getDay() === 1){
         return {
             type: actionTypes.UPDATE_TIMES,
-            payload: [],
+            payload: [
+                "19:00",
+                "20:00",
+                "21:00",
+                "22:00"
+            ],
         };
     } else{
         // For now, we return the same available times if the date is not a Monday.
