@@ -37,6 +37,8 @@ function BookingForm({ booking, availableTimes, today, onChange, submitForm, err
         }
         if (!booking.email) {
           newErrors.email = "Please enter your email.";
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(booking.email)) {
+          newErrors.email = "Please enter a valid email address.";
         }
         if (!booking.phone) {
           newErrors.phone = "Please enter your phone number.";
