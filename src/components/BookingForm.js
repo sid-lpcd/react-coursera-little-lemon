@@ -75,6 +75,7 @@ function BookingForm({ booking, availableTimes, today, onChange, submitForm, err
                 key={index}
                 className={`location-box ${booking.location === location ? 'selected' : ''}`}
                 onClick={() => onChange({target:{name: 'location', value: location}})}
+                aria-label="Select location"
               >
                 {location}
               </div>
@@ -85,13 +86,13 @@ function BookingForm({ booking, availableTimes, today, onChange, submitForm, err
       {currentStep === 2 && (
         <div className="second d-flex flex-column gy-5">
           <label htmlFor="guests" className='fs-4 text-second mb-2'>Number of guests</label>
-          <input type="number" placeholder="1" min="1" max="10" id="guests" name="guests" value={booking.guests || ""} onChange={onChange} style={{ borderColor: errors.guests ? 'red' : '' }} required/>
+          <input type="number" placeholder="1" min="1" max="10" id="guests" name="guests" value={booking.guests || ""} onChange={onChange} style={{ borderColor: errors.guests ? 'red' : '' }} required aria-label="Number of guests"/>
           {errors.guests && <p style={{ color: 'red' }}>{errors.guests}</p>}
           <label htmlFor="res-date" className='fs-4 text-second mb-2'>Choose date</label>
-          <input type="date" id="res-date" name="date" min={today} value={booking.date || today} onChange={onChange} style={{ borderColor: errors.date ? 'red' : '' }} required/>
+          <input type="date" id="res-date" name="date" min={today} value={booking.date || today} onChange={onChange} style={{ borderColor: errors.date ? 'red' : '' }} required aria-label="Choose reservation date"/>
           {errors.date && <p style={{ color: 'red' }}>{errors.date}</p>}
           <label htmlFor="res-time" className='fs-4 text-second mb-2'>Choose time</label>
-          <select id="res-time" name="time" value={booking.time || ""} onChange={onChange} style={{ borderColor: errors.time ? 'red' : '' }} required> 
+          <select id="res-time" name="time" value={booking.time || ""} onChange={onChange} style={{ borderColor: errors.time ? 'red' : '' }} required aria-label="Choose reservation time"> 
             <option value="" disabled>
               Select a time
             </option>
@@ -107,16 +108,16 @@ function BookingForm({ booking, availableTimes, today, onChange, submitForm, err
       {currentStep === 3 && (
         <div className="third d-flex flex-column">
           <label htmlFor="name" className='fs-5 text-second mb-2'>Name</label>
-          <input type="text" id="name" name="name" value={booking.name || ""} onChange={onChange} style={{ borderColor: errors.name ? 'red' : '' }} required/>
+          <input type="text" id="name" name="name" value={booking.name || ""} onChange={onChange} style={{ borderColor: errors.name ? 'red' : '' }} required aria-label="Booking name"/>
           {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
           <label htmlFor="email" className='fs-5 text-second mb-2'>Email</label>
-          <input type="email" id="email" name="email" value={booking.email || ""} onChange={onChange} style={{ borderColor: errors.email ? 'red' : '' }} required/>
+          <input type="email" id="email" name="email" value={booking.email || ""} onChange={onChange} style={{ borderColor: errors.email ? 'red' : '' }} required aria-label="Email address"/>
           {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
           <label htmlFor="phone" className='fs-5 text-second mb-2'>Phone</label>
-          <input type="tel" id="phone" name="phone" value={booking.phone || ""} onChange={onChange} style={{ borderColor: errors.phone ? 'red' : '' }} required/>
+          <input type="tel" id="phone" name="phone" value={booking.phone || ""} onChange={onChange} style={{ borderColor: errors.phone ? 'red' : '' }} required aria-label="Phone number"/>
           {errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
           <label htmlFor="occasion" className='fs-5 text-second mb-2'>Special occasion?</label>
-          <select id="occasion" name="occasion" value={booking.occasion || ""} onChange={onChange}>
+          <select id="occasion" name="occasion" value={booking.occasion || ""} onChange={onChange} aria-label="Select a special occasion">
                   <option value="">Select an occasion</option>
                   <option>Birthday</option>
                   <option>Anniversary</option>
@@ -129,6 +130,7 @@ function BookingForm({ booking, availableTimes, today, onChange, submitForm, err
           className="btn btn-primary"
           onClick={handleNextStep}
           disabled={!apiReady}
+          aria-label="On Click"
         />
       </form>
     </>
