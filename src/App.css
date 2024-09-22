@@ -105,6 +105,10 @@ section.container-green{
   gap: 20px;
 }
 
+section.container-green.errors{
+  height: 500px;
+}
+
 .container{
   align-items: center; /* vertical */
   justify-content: center; /* horizontal */

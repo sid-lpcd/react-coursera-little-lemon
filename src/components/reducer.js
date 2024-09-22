@@ -2,6 +2,7 @@
 
 export const actionTypes = {
     UPDATE_TIMES: 'UPDATE_TIMES',
+    INITIALIZE_TIMES: 'INITIALIZE_TIMES',
 };
 
 export const initializeTimes = () => {
@@ -16,33 +17,18 @@ export const initializeTimes = () => {
     ];
 };
 
-export const updateTimes = (date) => {
-    console.log(date)
-    const CurrentDate = new Date(date);
-    console.log(CurrentDate.getDay())
-    if(CurrentDate.getDay() === 1){
-        return {
-            type: actionTypes.UPDATE_TIMES,
-            payload: [
-                "19:00",
-                "20:00",
-                "21:00",
-                "22:00"
-            ],
-        };
-    } else{
-        // For now, we return the same available times if the date is not a Monday.
-        return {
-            type: actionTypes.UPDATE_TIMES,
-            payload: initializeTimes()
-        };
-    }
-    
+export const updateTimes = (times) => {
+    return {
+        type: actionTypes.UPDATE_TIMES,
+        payload: times,
+    };
 };
 export const timesReducer = (state, action) => {
     switch (action.type) {
         case actionTypes.UPDATE_TIMES:
             return action.payload;
+        case actionTypes.INITIALIZE_TIMES:
+            return initializeTimes();
         default:
             return state;
     }

@@ -1,6 +1,8 @@
 import BookingForm from "./BookingForm";
 import React, { useState, useEffect, useReducer } from "react";
 import { timesReducer, updateTimes, initializeTimes } from "./reducer";
+
+
 function BookingPage() {
   const [booking, setBooking] = useState(
       {name:"", email: "", phone: "", location: "Chicago", date: "", time: "", guests: "1", occasion: ""},
@@ -8,6 +10,8 @@ function BookingPage() {
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [today, setToday] = useState('');
+  const [errors, setErrors] = useState({});  // Track errors for each field
+  const [apiReady, setApiReady] = useState(false); // Track API readiness
 
   const [availableTimes, dispatch] = useReducer(timesReducer, [], () => initializeTimes());
 
@@ -19,14 +23,46 @@ function BookingPage() {
         ...prevBooking,
         date: todayDate
     }));
+    
+    const script = document.createElement('script');
+    script.src = `${process.env.PUBLIC_URL}/api/api.js`;
+    script.async = true;
+    script.onload = () => {
+      setApiReady(true); // Set API as ready once the script loads
+      window.apiReady = true; // Set global state for tests
+      if (window.fetchAPI) {
+        // You can now access fetchAPI or submitAPI
+        const initialTimes = window.fetchAPI(todayDate);  // Use the API
+        dispatch(updateTimes(initialTimes));
+
+      } 
+    };
+
+    script.onerror = () => {
+      console.error("Error loading external script");
+    };
+  
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);  // Clean up the script when the component unmounts
+    };
   },[])
+
+  useEffect(() => {
+    if (booking.date && apiReady) {
+      // Whenever the date changes, fetch available times for that date
+      const updatedTimes = window.fetchAPI(booking.date);
+      dispatch(updateTimes(updatedTimes));
+    }
+  }, [apiReady, booking.date]); // Runs whenever the 'booking.date' changes
 
   function handleChange(e) {
     const { name, value } = e.target;
     setBooking({ ...booking, [name]: value });
 
-    if (name === 'date') {
-        dispatch(updateTimes(value)); // Update available times based on the selected date
+    if (name === 'date' && apiReady) {
+        dispatch(updateTimes(window.fetchAPI(value))); // Update available times based on the selected date
     }
   }
 
@@ -34,6 +70,25 @@ function BookingPage() {
     label: key.charAt(0).toUpperCase() + key.slice(1), // Capitalize the first letter of the key
     value: booking[key] || "None" // Handle empty values with a default
   }));
+
+  const submitForm = async (formData) => {
+    try {
+      if(apiReady){
+          const isSuccess = await window.submitAPI(formData); // Wait for the external submitAPI
+        if (isSuccess) {
+            console.log("Form successfully submitted!");
+            setFormSubmitted(true); // Indicate that the form has been submitted
+        } else {
+            console.error("Form submission failed.");
+        }
+      } else{
+        console.error("API not ready for submission.");
+      }
+      
+    } catch (error) {
+      console.error("An error occurred during submission:", error);
+    }
+  };
 
   if (formSubmitted) {
     return (
@@ -54,10 +109,10 @@ function BookingPage() {
   }
   return (
     <>
-      <section className="container container-green" id="book-table">
+      <section className={errors ? 'container container-green errors' : 'container container-green'} id="book-table">
         <div className="col-6">
             <h1 className="title-primary">Little Lemon</h1>
-            <h3 className="title-secondary">Chicago</h3>
+            <h3 className="title-secondary">Book Now</h3>
             <p className="text-second">Random description of the restaurant. This text is just place holder to simulate how it would look.
         Fill even more the text so it looks better aligned with Coursera tasks.</p>
         </div>
@@ -67,8 +122,10 @@ function BookingPage() {
             availableTimes={availableTimes}
             today={today}
             onChange={handleChange}
-            formSubmitted={formSubmitted}
-            setFormSubmitted={setFormSubmitted}
+            submitForm={submitForm}
+            errors={errors}
+            setErrors={setErrors}
+            apiReady={apiReady}
           />
         </div>
       </section>
