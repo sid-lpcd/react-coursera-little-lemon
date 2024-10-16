@@ -243,27 +243,28 @@ footer ul {
   }
 }
 
-.card {
+#testimonials .card {
   max-height: 250px;
   min-width: 20%;
   padding: 0.5rem;
 }
-.card .row{
-  max-width: 90%;
+#testimonials .card .row{
+  max-width: 90% !important;
 }
 
-.card-text {
+#testimonials .card-text {
   font-size: 0.8rem;
 }
-.card-img-side {
+
+#testimonials .card-img-side {
   border-radius: 50%;
 }
 
-.card-profile {
+#testimonials .card-profile {
   font-size: 0.8rem;
   font-weight: bold;
 }
 
-.card-title {
+#testimonials .card-title {
   font-size: 1.2rem;
 }
