@@ -10,25 +10,25 @@ function Testimonials() {
     {
       img: image1,
       title: "Excellent Service",
-      text_profile: "John Doe, Food Blogger",
+      text_profile: "John Doe",
       text_review: "The food was fantastic and the service was impeccable. Will definitely come again!"
     },
     {
       img: image2,
       title: "Wonderful Experience",
-      text_profile: "Jane Smith, Travel Enthusiast",
+      text_profile: "Jane Smith",
       text_review: "A truly unforgettable dining experience with exceptional ambiance and delightful dishes."
     },
     {
       img: image3,
       title: "Top-Notch Quality",
-      text_profile: "Michael Brown, Chef",
+      text_profile: "Michael Brown",
       text_review: "Every dish was masterfully prepared, and the ingredients were top-notch. Highly recommend!"
     },
     {
       img: image4,
       title: "Great Atmosphere",
-      text_profile: "Harry David, Restaurant Critic",
+      text_profile: "Harry David",
       text_review: "The restaurant had such a warm and inviting atmosphere. The staff was friendly and the food was delicious!"
     }
   ];
