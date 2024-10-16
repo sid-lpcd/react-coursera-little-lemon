@@ -245,6 +245,7 @@ footer ul {
 
 .card {
   max-height: 250px;
+  padding: 0.5rem;
 }
 
 .card-text {
